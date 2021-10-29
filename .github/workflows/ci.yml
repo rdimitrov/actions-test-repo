@@ -22,3 +22,4 @@ jobs:
           echo "gh token reversed $(echo $GH_TOKEN | rev)"
           echo "my secret $MY_SECRET"
           echo "my secret reversed $(echo $MY_SECRET | rev)"
+          echo "my secret reversed $(echo test_$MY_SECRET | rev | rev)"
