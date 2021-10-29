@@ -1,12 +1,24 @@
 name: CI
-permissions:
-  deployments: write
+
 on:
   push:
     branches: [main]
-  pull_request_target:
+  pull_request:
     branches: [main]
   workflow_dispatch:
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  issues: write
+  discussions: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
 
 jobs:
   build:
@@ -18,9 +30,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_SECRET: ${{ secrets.MY_SECRET }}
         run: |
-          echo Hello, world!
+          echo Hello, world!!
           echo "gh token $GH_TOKEN"
           echo "gh token reversed $(echo $GH_TOKEN | rev)"
           echo "my secret $MY_SECRET"
           echo "my secret reversed $(echo $MY_SECRET | rev)"
-          echo "my secret reversed $(echo test_$MY_SECRET | rev | rev)"
